@@ -13,7 +13,7 @@ public class TournamentCleanupTask implements Runnable {
     public void run() {
         while (true) {
             try {
-                // Überprüfe alle 30 Sekunden auf beendete Turniere
+                //Überprüft alle 30 Sekunden auf beendete Turniere
                 TimeUnit.SECONDS.sleep(30);
                 //tournamentService.checkAndEndTournaments();
             } catch (InterruptedException e) {

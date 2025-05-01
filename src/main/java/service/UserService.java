@@ -22,7 +22,7 @@ public class UserService {
     public String loginUser(String username, String password) {
         User user = userDAO.getUserByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
-            String token = username + "-sebToken"; // Simple token as in CURL tests
+            String token = username + "-sebToken"; // Konsistent mit CURL-Tests
             userDAO.setUserToken(username, token);
             return token;
         }

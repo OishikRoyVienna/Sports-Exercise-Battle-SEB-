@@ -1,20 +1,20 @@
 package model;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Stats {
     private int elo;
     private int totalPushups;
+    private List<String> badges = new ArrayList<>();
 
-    // Standardkonstruktor
-    public Stats() {
-    }
+    public Stats() {}
 
-    // Konstruktor mit Werten
     public Stats(int elo, int totalPushups) {
         this.elo = elo;
         this.totalPushups = totalPushups;
     }
 
-    // Getter und Setter
+    // Getter/Setter
     public int getElo() {
         return elo;
     }
@@ -31,11 +31,20 @@ public class Stats {
         this.totalPushups = totalPushups;
     }
 
+    public List<String> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<String> badges) {
+        this.badges = badges;
+    }
+
     @Override
     public String toString() {
         return "Stats{" +
                 "elo=" + elo +
                 ", totalPushups=" + totalPushups +
+                ", badges=" + badges +
                 '}';
     }
 }

@@ -1,37 +1,37 @@
 package model;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
     @JsonProperty("Username")
     private String username;
-
     @JsonProperty("Password")
     private String password;
-
     @JsonProperty("Name")
     private String name;
-
     @JsonProperty("Bio")
     private String bio;
     @JsonProperty("Image")
     private String image;
     @JsonProperty("Elo")
-    private int elo;
+    private int elo = 100;  // Default value
     @JsonProperty("Token")
     private String token;
+    @JsonProperty("Badges")
+    private List<String> badges = new ArrayList<>();
 
-    // Standardkonstruktor
     public User() {
+        badges.add("Beginner");
     }
 
-    // Konstruktor für Registrierung
     public User(String username, String password) {
+        this();
         this.username = username;
         this.password = password;
-        this.elo = 100; // Standard-ELO-Wert
     }
 
-    // Getter und Setter
     public String getUsername() {
         return username;
     }
@@ -88,16 +88,22 @@ public class User {
         this.token = token;
     }
 
+    public List<String> getBadges() {
+        return badges;
+    }
+
+    public void addBadge(String badge) {
+        if (!badges.contains(badge)) {
+            badges.add(badge);
+        }
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", bio='" + bio + '\'' +
-                ", image='" + image + '\'' +
                 ", elo=" + elo +
-                ", token='" + token + '\'' +
+                ", badges=" + badges +
                 '}';
     }
 }
